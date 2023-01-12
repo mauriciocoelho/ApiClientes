@@ -17,7 +17,7 @@ class ClientRepository extends AbstractRepository
     {
         $this->model = $this->model
             ->where("nome", "ilike", "%".$search."%")
-            ->orWhere("cpf", "ilike", "%".$search."%");
+            ->orWhere("cpf", "like", "%".$search."%");
     }
 
     public function getResultado($order = 'id')

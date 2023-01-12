@@ -7,7 +7,9 @@ use App\Http\Controllers\ApiController;
 use App\Models\Client;
 use App\Http\Requests\ClientRequest;
 use App\Http\Resources\ClientCollection;
+use App\Http\Resources\ClientResource;
 use App\Repository\ClientRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class ClientController extends ApiController
@@ -38,58 +40,20 @@ class ClientController extends ApiController
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\ClientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ClientRequest $request)
+    public function store(Request $request): JsonResponse
     {
-        //
-    }
+        if ($this->validateForm($request->all(), $this->clientRequest->rules()) == true) {
+            return $this->successResponse(ClientResource::mapClientResponse(
+                $this->client->create($request->all())
+            ), 'Cliente criado com sucesso!', 201);
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Client $client)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Client $client)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\ClientRequest  $request
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function update(ClientRequest $request, Client $client)
-    {
-        //
+        return $this->errorMessages();
     }
 
     /**
@@ -98,8 +62,9 @@ class ClientController extends ApiController
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Client $client): JsonResponse
     {
-        //
+        $client->delete();
+        return $this->successResponse([], 'Cliente apagado com sucesso!', 202);
     }
 }
