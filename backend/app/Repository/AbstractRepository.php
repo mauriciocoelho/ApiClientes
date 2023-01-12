@@ -32,7 +32,7 @@ abstract class AbstractRepository
         $this->model = $this->model->selectRaw($search);
     }
 
-    public function getResultado($order = 'status')
+    public function getResultado($order = 'id')
     {
         return $this->model->orderByDesc($order);
     }

@@ -16,12 +16,13 @@ class Client extends Model
     protected $casts = [
         'id' => 'int',
         'data_nasc' => 'date:d/m/Y',
+        'created_at' => 'datetime:d/m/Y h:m',
         'updated_at' => 'datetime:d/m/Y h:m',
         'deleted_at' => 'datetime:d/m/Y h:m',
     ];
 
     protected $fillable = [
-        'name',
+        'nome',
         'cpf',
         'data_nasc',        
         'telefone',

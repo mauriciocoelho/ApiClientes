@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Http\Requests\ClientRequest;
 use App\Http\Resources\ClientCollection;
 use App\Repository\ClientRepository;
+use Illuminate\Http\Request;
 
 class ClientController extends ApiController
 {
@@ -25,9 +26,13 @@ class ClientController extends ApiController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $clientRepository = new ClientRepository($this->client);
+
+        if ($request->has('search')) {
+            $clientRepository->selecioneSearch($request->get('search'));
+        }
 
         return new ClientCollection($clientRepository->getResultado()->paginate(500));
     }
