@@ -5,11 +5,20 @@ namespace App\Http\Controllers\Api\v1;
 use App\Http\Controllers\ApiController;
 
 use App\Models\Client;
-use App\Http\Requests\StoreClientRequest;
-use App\Http\Requests\UpdateClientRequest;
+use App\Http\Requests\ClientRequest;
+use App\Repository\ClientRepository;
 
 class ClientController extends ApiController
 {
+    private Client $client;
+    private ClientRequest $clientRequest;
+
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+        $this->clientRequest = new ClientRequest();
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +26,9 @@ class ClientController extends ApiController
      */
     public function index()
     {
-        //
+        $clientRepository = new ClientRepository($this->client);
+
+        return new AdministradorCollection($administradorRepository->getResultado()->paginate(500));
     }
 
     /**
@@ -33,10 +44,10 @@ class ClientController extends ApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreClientRequest  $request
+     * @param  \App\Http\Requests\ClientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClientRequest $request)
+    public function store(ClientRequest $request)
     {
         //
     }
@@ -66,11 +77,11 @@ class ClientController extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateClientRequest  $request
+     * @param  \App\Http\Requests\ClientRequest  $request
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateClientRequest $request, Client $client)
+    public function update(ClientRequest $request, Client $client)
     {
         //
     }
