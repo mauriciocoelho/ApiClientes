@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('cpf')->unique();
-            $table->date('data_nasc')->nullable();
+            $table->date('data_nasc');
+            $table->string('telefone')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
