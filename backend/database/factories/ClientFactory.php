@@ -16,8 +16,13 @@ class ClientFactory extends Factory
      */
     public function definition()
     {
+        $this->faker = \Faker\Factory::create('pt_BR');
+
         return [
-            //
+            'name' =>  $this->faker->name(),
+            'cpf' => $this->faker->cpf(),
+            'data_nasc' => $this->faker->dateTimeThisMonth()->format('Y-m-d'),
+            'telefone' => $this->faker->phoneNumber(),  
         ];
     }
 }
