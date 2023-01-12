@@ -18,7 +18,7 @@ class ClientResource extends JsonResource
             'id' => $client->id,
             'nome' => $client->nome,
             'cpf' => $client->cpf,
-            'data_nasc' => $client->data_nasc,
+            'data_nasc' => date('d/m/Y', strtotime($client->data_nasc)),
             'telefone' => $client->telefone,            
             'created_at'  => date('d/m/Y h:m', strtotime($client->created_at)),
             'updated_at'  => date('d/m/Y h:m', strtotime($client->updated_at)),

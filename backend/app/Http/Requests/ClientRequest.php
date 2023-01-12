@@ -26,8 +26,8 @@ class ClientRequest extends FormRequest
         return [
             'nome' => 'required|string',
             'cpf' => 'required|cpf',
-            'data_nasc' => 'required|string',
-            'telefone' => 'required|string',
+            'data_nasc' => 'required|date',
+            'telefone' => 'required|celular_com_ddd',
         ];
     }
 }
