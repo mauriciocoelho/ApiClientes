@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiController;
 
 use App\Models\Client;
 use App\Http\Requests\ClientRequest;
+use App\Http\Resources\ClientCollection;
 use App\Repository\ClientRepository;
 
 class ClientController extends ApiController
@@ -28,7 +29,7 @@ class ClientController extends ApiController
     {
         $clientRepository = new ClientRepository($this->client);
 
-        return new AdministradorCollection($administradorRepository->getResultado()->paginate(500));
+        return new ClientCollection($clientRepository->getResultado()->paginate(500));
     }
 
     /**
