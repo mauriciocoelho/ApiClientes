@@ -1,23 +1,11 @@
-import styled from 'styled-components';
-
-
-const FooterContainer = styled.div`
-  background-color: #2894f4;
-  color: white;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
+import styles from '../styles/Footer.module.css'
   
 function Footer() {
     const currentYear = new Date().getFullYear();
     return (
-        <FooterContainer className="Footer">
+        <div className={styles.Footer}>
             @{currentYear} Mauricio Rodrigues Coelho. All Rights Reserved.
-        </FooterContainer>
+        </div>
     );
 }
 
