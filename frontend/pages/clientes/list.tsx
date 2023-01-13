@@ -50,7 +50,7 @@ const List = () => {
     const destroyClient = async (id: any) => {
         const isConfirm = await Swal.fire({
             title: 'Você tem certeza?',
-            text: "Você não será capaz de reverter isso!",
+            text: "depois que apagar não será capaz de reverter!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
