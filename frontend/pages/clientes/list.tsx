@@ -9,10 +9,13 @@ import Tooltip from "@mui/material/Tooltip";
 import TablePagination from "@mui/material/TablePagination";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+import CardHeader from '@mui/material/CardHeader';
+import Input from '@mui/material/Input';
 import { useEffect, useState } from "react";
 import { deleteClient, getClientAll } from "../../services/client";
 import React from "react";
 import Swal from 'sweetalert2';
+import api from "../../services/api";
 
 const List = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +49,15 @@ const List = () => {
           })
           .catch()
     },  []);
+
+    function SearchNome(search: any) {        
+        setIsLoading(true);
+        api
+          .get(`clients?search=${search}`)
+          .then((res) => setData(res.data.data))
+          .catch();
+        setIsLoading(false);      
+    }
 
     const destroyClient = async (id: any) => {
         const isConfirm = await Swal.fire({
@@ -101,7 +113,7 @@ const List = () => {
             });
             setIsLoading(false);
           });
-      }
+    }
 
     return (
         <div>
@@ -110,7 +122,20 @@ const List = () => {
                     <CircularProgress sx={{ "--CircularProgress-size": "150px" }} />
                 </Box>: 
                 (
-                    <>                        
+                    <>      
+                        <CardHeader title="Listagem de Clientes"
+                            action={
+                                <Input
+                                    type="text"
+                                    placeholder={`Buscar clientes...`}
+                                    onChange={(event: {
+                                        target: { value: React.SetStateAction<string> };
+                                    }) => {
+                                        SearchNome(event.target.value);
+                                    }}
+                                />
+                            }
+                        />                  
                         <Table>
                             <TableHead>
                                 <TableRow>

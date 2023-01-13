@@ -16,7 +16,7 @@ class ClientRepository extends AbstractRepository
     public function selecioneSearch($search)
     {
         $this->model = $this->model
-            ->where("nome", "ilike", "%".$search."%")
+            ->where("nome", "like", "%".$search."%")
             ->orWhere("cpf", "like", "%".$search."%");
     }
 

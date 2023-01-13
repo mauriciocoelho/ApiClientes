@@ -28,4 +28,6 @@ class Client extends Model
         'telefone',
     ];
 
+    protected $guarded = ['id'];
+
 }
