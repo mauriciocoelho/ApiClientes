@@ -10,8 +10,9 @@ import TablePagination from "@mui/material/TablePagination";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useEffect, useState } from "react";
-import { getClientAll } from "../../services/client";
+import { deleteClient, getClientAll } from "../../services/client";
 import React from "react";
+import Swal from 'sweetalert2';
 
 const List = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +47,62 @@ const List = () => {
           .catch()
     },  []);
 
+    const destroyClient = async (id: any) => {
+        const isConfirm = await Swal.fire({
+            title: 'Você tem certeza?',
+            text: "Você não será capaz de reverter isso!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, pode deletar!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            return result.isConfirmed
+        });
+        
+        if(!isConfirm){
+            return;
+        }
+        setIsLoading(true);
+        await deleteClient(id)
+        .then((res: any) => {
+            setIsLoading(false);
+            Swal.fire({
+                icon: `success`,
+                title: `OK`,
+                text: res.data.message,
+            });
+            TodosClient();
+        })
+        .catch((res: any) => {
+            Swal.fire({
+                icon: `error`,
+                title: res.response.data.message,
+                text: res.response.data.data.mensagem,
+            });
+            setIsLoading(false);
+        });
+    }    
+    
+    function TodosClient() {
+        setIsLoading(true);
+        getClientAll()
+          .then((res: { data: { data: React.SetStateAction<never[]> } }) => {
+            setData(res.data.data);
+            setCount(res.data.data.length);
+            setIsLoading(false)
+          })
+          .catch((err: any) => {
+            Swal.fire({
+              icon: `error`,
+              title: `OP..`,
+              text: err.message,
+            });
+            setIsLoading(false);
+          });
+      }
+
     return (
         <div>
             {isLoading ? 
@@ -77,7 +134,7 @@ const List = () => {
                                             <TableCell>
                                                 <Tooltip title="Deletar">
                                                     <IconButton>
-                                                        <DeleteIcon color='error' />
+                                                        <DeleteIcon color='error' onClick={()=>destroyClient(id)} />
                                                     </IconButton>
                                                 </Tooltip>
                                             </TableCell>
