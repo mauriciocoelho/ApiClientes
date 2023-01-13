@@ -53,8 +53,7 @@ const List = () => {
                     <CircularProgress sx={{ "--CircularProgress-size": "150px" }} />
                 </Box>: 
                 (
-                    <>
-                        
+                    <>                        
                         <Table>
                             <TableHead>
                                 <TableRow>
