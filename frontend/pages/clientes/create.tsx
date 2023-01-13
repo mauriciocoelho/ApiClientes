@@ -1,4 +1,3 @@
-import Layout from "../../components/Layout";
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import { Card, CardContent, Typography } from '@mui/material';
@@ -97,7 +96,7 @@ const Create = () => {
         });
     }
     return (
-        <Layout>
+        <>
             <CardHeader/>
             <Grid container spacing={12}>
                 <Grid item xs={10}>
@@ -179,8 +178,8 @@ const Create = () => {
                         </CardContent>
                     </Card>
                 </Grid>
-            </Grid>
-        </Layout>    
+            </Grid>   
+        </>
     )        
 }
 
