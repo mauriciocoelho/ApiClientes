@@ -4,23 +4,23 @@ import styled from 'styled-components';
 import Head from "next/head";
 
 const LayoutContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
 `;
   
 const Layout = (props: any) => (
-    <LayoutContainer className="Layout">
-        <Head>
-            <title>Desafio Cuco</title>
-        </Head>
-        <Header />
-        <div className="Content">
-            {props.children}
-        </div>
-        <Footer />
-        <style jsx global>{`
+  <LayoutContainer className="Layout">
+    <Head>
+      <title>Desafio Cuco</title>
+    </Head>
+    <Header />
+    <div className="Content">
+      {props.children}
+    </div>
+    <Footer />
+    <style jsx global>{`
       * {
         box-sizing: border-box;
       }
@@ -56,7 +56,7 @@ const Layout = (props: any) => (
         font-family: Arial;
       }
     `}</style>
-    </LayoutContainer>
+  </LayoutContainer>
 );
   
 export default Layout;

@@ -9,26 +9,25 @@ import Layout from '../../components/Layout';
 
 
 
-const Clients = () => {
-    return (
-        <Layout>
-            <div style={{ height: "100%", width: "100%" }}>
-                <div style={{height:"20px"}}></div>
-                <Button type='submit' variant='contained' startIcon={<AddIcon />} color='success' href='/clientes/create'>
-                    Novo Cliente
-                </Button>
-                <div style={{height:"20px"}}></div>
-                <Paper>
-                    <CardHeader title="Listagem de Clientes"
-                        action={
-                            <Input placeholder="Pesquisar..." />
-                        }
-                    />
-                    <List />
-                </Paper>
-            </div>
-        </Layout>
-    );
-}
+const Clients = (props: any) => (
+
+    <Layout>
+        <div style={{ height: "100%", width: "100%" }}>
+            <div style={{height:"20px"}}></div>
+            <Button type='submit' variant='contained' startIcon={<AddIcon />} color='success' href='/clientes/create'>
+                Novo Cliente
+            </Button>
+            <div style={{height:"20px"}}></div>
+            <Paper>
+                <CardHeader title="Listagem de Clientes"
+                    action={
+                        <Input placeholder="Pesquisar..." />
+                    }
+                />
+                <List />
+            </Paper>
+        </div>
+    </Layout>
+);
   
 export default Clients;
