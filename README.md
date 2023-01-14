@@ -48,17 +48,20 @@ Você pode acessar este URL depois de concluir a configuração do frontend.
 
 ##### API Docs
 
-- Admin:
+- clients:
 
-  https://documenter.getpostman.com/view/9967497/UVBzm94s
+  https://www.postman.com/mauriciocoelho/workspace/desafio-cuco/collection/9050827-3a985997-0b29-4985-9225-c7fcd6a3b1dd?ctx=documentation
 
-- Customer:
+### Documentação das rotas com Swagger
+```
+Pelo o navegador acesse
+- http://localhost:8000/api/doc
+```
 
-  https://documenter.getpostman.com/view/9967497/UVBzm94u
-
-- Public:
-
-  https://documenter.getpostman.com/view/9967497/UVBzm94v
+### Testes Unitário
+```
+- php artisan test
+```
 
 #### Frontend
 
