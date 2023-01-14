@@ -1,0 +1,94 @@
+swagger: "2.0"
+info:
+  version: 1.0.2
+  title: Documentação Api Desafio Cuco
+paths:
+  # api clients
+  /api/v1/clients:
+    get:
+      tags:
+        - Clients
+      summary: Retorna uma lista de clientes
+      description: "Retornar os objetos dos clientes"
+      operationId: client
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Lista de clientes recuperada com sucesso
+        "404":
+          description: Não encontramos nenhum clientes
+        "500":
+          description: Erro interno do servidor
+      security:
+        - bearerAuth: []
+    post:
+      tags:
+        - Clients
+      summary: Salva um cliente
+      description: "Salvar um cliente na base de dados"
+      operationId: createClient
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: nome
+          type: string
+          required: true
+        - in: query
+          name: cpf
+          type: string
+          required: true
+        - in: query
+          name: data_nasc
+          type: string
+          required: true
+        - in: query
+          name: telefone
+          type: string
+      responses:
+        "201":
+          description: Cliente criado com sucesso
+        "422":
+          description: Atributos não podem ser processados
+        "500":
+          description: Erro interno do servidor
+      security:
+        - bearerAuth: []
+  /api/v1/clients/{client}:
+    delete:
+      tags:
+        - Clientes
+      summary: Deletar um cliente
+      operationId: deleteCliente
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: client
+          type: integer
+          required: true
+      responses:
+        "202":
+          description: Cliente Removido com sucesso
+        "404":
+          description: Não encontramos nenhum cliente
+        "405":
+          description: O método especificado para a solicitação é inválido
+        "500":
+          description: Erro interno do servidor
+      security:
+        - bearerAuth: []  
+
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: JWT Authorization header
