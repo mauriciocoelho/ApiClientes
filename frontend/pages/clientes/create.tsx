@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
 import Layout from '../../components/Layout';
+import styles from '../../styles/Layout.module.css'
 
 const ButtonStyled = styled(Button)<ButtonProps & { component?: ElementType; htmlFor?: string }>(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -97,89 +98,66 @@ const Create = () => {
         });
     }
     return (
-        <Layout>
-            <CardHeader/>
-            <Grid container spacing={12}>
-                <Grid item xs={10}>
-                    <Typography variant='h5'>
-                        <Link>
-                            Cadastro de Clientes
-                        </Link>
-                    </Typography><br></br>
-                    <Breadcrumbs aria-label="breadcrumb">
-                        <Link underline="hover" color="inherit" href={`/`}>
-                            Início
-                        </Link>
-                        <Link
-                            underline="hover"
-                            color="inherit"
-                            href={`/clientes`}
-                        >
-                            Clientes
-                        </Link>
-                        <Typography color="text.primary">Novo cliente</Typography>
-                    </Breadcrumbs>     
-                </Grid>
-                <Grid item xs={12}>
-                    <Card>          
-                        <CardContent>        
-                            <form onSubmit={createUser} method='post'>
-                                <Grid container spacing={5}>
-                                    <Grid item xs={12}>
-                                        <TextField 
-                                            fullWidth 
-                                            value={nome} 
-                                            onChange={(event: { target: { value: string } }) => {
-                                                setNome(event.target.value);
-                                            }} 
-                                            placeholder='Nome Completo' 
-                                        />
-                                    </Grid>     
-                                    <Grid item xs={12}>
-                                        <TextField 
-                                            fullWidth 
-                                            value={cpf} 
-                                            onChange={(event: { target: { value: string } }) => {
-                                                setCPF(formatCPF(event.target.value));
-                                            }} 
-                                            placeholder='000.000.000-00' 
-                                        />
-                                    </Grid>     
-                                    <Grid item xs={12}>
-                                        <TextField 
-                                            fullWidth 
-                                            value={data_nasc} 
-                                            onChange={(event: { target: { value: string } }) => {
-                                                setData_Nasc(formatDataNasc(event.target.value));
-                                            }} 
-                                            placeholder='07/08/1989' 
-                                        />
-                                    </Grid>     
-                                    <Grid item xs={12}>
-                                        <TextField 
-                                            fullWidth 
-                                            value={telefone} 
-                                            onChange={(event: { target: { value: string } }) => {
-                                                setTelefone(formatTelefone(event.target.value));
-                                            }} 
-                                            placeholder='(99)99999-9999' 
-                                        />
-                                    </Grid>                  
-                                    <Grid item xs={12}>
-                                        {errorMessage && <p style={{color: "red"}}>{errorMessage}</p>}
-                                        <ButtonStyled type='submit' variant='contained' startIcon={<DoneIcon />} size='large' color='success'>
-                                            Salvar
-                                        </ButtonStyled>        
-                                        <ResetButtonStyled color='secondary' variant='outlined' startIcon={<CloseIcon />} href='/clientes'>
-                                            Cancelar
-                                        </ResetButtonStyled>
-                                    </Grid>
+        <Layout>            
+            <Grid item xs={10}>
+                <div className={styles.card}>          
+                    <div className={styles.form}>   
+                        <form onSubmit={createUser} method='post'>
+                            <Grid container spacing={5}>
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        fullWidth 
+                                        value={nome} 
+                                        onChange={(event: { target: { value: string } }) => {
+                                            setNome(event.target.value);
+                                        }} 
+                                        placeholder='Nome Completo' 
+                                    />
+                                </Grid>     
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        fullWidth 
+                                        value={cpf} 
+                                        onChange={(event: { target: { value: string } }) => {
+                                            setCPF(formatCPF(event.target.value));
+                                        }} 
+                                        placeholder='000.000.000-00' 
+                                    />
+                                </Grid>     
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        fullWidth 
+                                        value={data_nasc} 
+                                        onChange={(event: { target: { value: string } }) => {
+                                            setData_Nasc(formatDataNasc(event.target.value));
+                                        }} 
+                                        placeholder='07/08/1989' 
+                                    />
+                                </Grid>     
+                                <Grid item xs={12}>
+                                    <TextField 
+                                        fullWidth 
+                                        value={telefone} 
+                                        onChange={(event: { target: { value: string } }) => {
+                                            setTelefone(formatTelefone(event.target.value));
+                                        }} 
+                                        placeholder='(99)99999-9999' 
+                                    />
+                                </Grid>                  
+                                <Grid item xs={12}>
+                                    {errorMessage && <p style={{color: "red"}}>{errorMessage}</p>}
+                                    <ButtonStyled type='submit' variant='contained' startIcon={<DoneIcon />} size='large' color='success'>
+                                        Salvar
+                                    </ButtonStyled>        
+                                    <ResetButtonStyled color='secondary' variant='outlined' startIcon={<CloseIcon />} href='/clientes'>
+                                        Cancelar
+                                    </ResetButtonStyled>
                                 </Grid>
-                            </form>
-                        </CardContent>
-                    </Card>
-                </Grid>
-            </Grid>   
+                            </Grid>
+                        </form>
+                    </div>
+                </div>
+            </Grid>            
         </Layout>
     )        
 }

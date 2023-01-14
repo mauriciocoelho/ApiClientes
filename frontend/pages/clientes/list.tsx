@@ -16,6 +16,7 @@ import { deleteClient, getClientAll } from "../../services/client";
 import React from "react";
 import Swal from 'sweetalert2';
 import api from "../../services/api";
+import styles from '../../styles/Layout.module.css'
 
 const List = () => {
     const [isLoading, setIsLoading] = useState(true);
