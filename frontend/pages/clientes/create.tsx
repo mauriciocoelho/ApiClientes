@@ -12,6 +12,7 @@ import { addClient } from "../../services/client";
 import Swal from 'sweetalert2';
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
+import Layout from '../../components/Layout';
 
 const ButtonStyled = styled(Button)<ButtonProps & { component?: ElementType; htmlFor?: string }>(({ theme }) => ({
     [theme.breakpoints.down('sm')]: {
@@ -96,7 +97,7 @@ const Create = () => {
         });
     }
     return (
-        <>
+        <Layout>
             <CardHeader/>
             <Grid container spacing={12}>
                 <Grid item xs={10}>
@@ -179,7 +180,7 @@ const Create = () => {
                     </Card>
                 </Grid>
             </Grid>   
-        </>
+        </Layout>
     )        
 }
 

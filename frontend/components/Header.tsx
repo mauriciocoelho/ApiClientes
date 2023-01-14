@@ -1,12 +1,10 @@
 import styles from '../styles/Header.module.css'
 
-function Header() {
-  return (
-    <div className={styles.Header}>
-      Desafio CUCO
-    </div>
-  );
-}
+const Header = () => (
 
+  <div className={styles.header}>
+    Desafio Cuco
+  </div>
+);
 
-export default Header
+export default Header;

@@ -1,19 +1,9 @@
-import * as React from 'react'
-import Link from 'next/link'
+import { Button } from "@mui/material";
+import Layout from "../components/Layout";
 
-export default function Home() {
-  return (
-    <>  
-      <div>
-        <Link href="/clientes">
-          <h2>
-            <p>
-              Acessar Clientes
-            </p>              
-          </h2>
-        </Link>
-        
-      </div>     
-    </>
-  )
-}
+const Index = () => 
+  <Layout>
+    <Button href="/clientes">Clientes</Button>
+  </Layout>
+
+export default Index;

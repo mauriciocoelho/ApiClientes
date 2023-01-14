@@ -1,26 +1,62 @@
-import Footer from "./Footer";
-import Header from "./Header";
-import styled from 'styled-components';
 import Head from "next/head";
+import NavBar from "./Footer";
+import Header from "./Header";
 
-const LayoutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f5f5f5;
-`;
-  
-export default function Layout({children}) {
-  return(
-    <LayoutContainer className="Layout">
-      <Head>
-        <title>Desafio Cuco</title>
-      </Head>
-      <Header />
-      <div className="Content">
-        {children}
-      </div>
-      <Footer />    
-    </LayoutContainer> 
-  )
+import styles from '../styles/Layout.module.css'
+
+interface LayoutProps {
+  children: React.ReactNode;
 }
+
+const Layout = (props: LayoutProps) => (
+  <div className={styles.layout}>
+
+    <Head>
+      <title>Desafio Cuco &mdash; Mauricio Coelho</title>
+    </Head>
+
+    <Header />
+    <div className={styles.content}>
+      {props.children}
+    </div>
+    <NavBar />
+    <style jsx global>{`
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #__next {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .Layout {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+      }
+
+      .Content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        font-family: Arial;
+      }
+    `}</style>
+  </div>
+);
+
+export default Layout;
