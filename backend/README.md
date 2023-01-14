@@ -48,7 +48,7 @@ Você pode acessar este URL depois de concluir a configuração do frontend.
 
 - clients:
 
-  https://www.postman.com/mauriciocoelho/workspace/desafio-cuco/collection/9050827-3a985997-0b29-4985-9225-c7fcd6a3b1dd?ctx=documentation
+  https://postman.com/mauriciocoelho/workspace/desafio-cuco/documentation/9050827-3a985997-0b29-4985-9225-c7fcd6a3b1dd
 
 ### Documentação das rotas com Swagger
 ```
