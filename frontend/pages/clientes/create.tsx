@@ -1,13 +1,9 @@
-import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
-import { Card, CardContent, Typography } from '@mui/material';
-import Link from '@mui/material/Link';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
 import TextField from '@mui/material/TextField';
 import DoneIcon from '@mui/icons-material/Done';
 import CloseIcon from '@mui/icons-material/Close';
 import { ElementType, useState } from "react";
-import router, { useRouter } from 'next/router';
+import router from 'next/router';
 import { addClient } from "../../services/client";
 import Swal from 'sweetalert2';
 import { styled } from '@mui/material/styles';
@@ -108,7 +104,8 @@ const Create = () => {
                             </Grid><br></br>
                             <Grid container spacing={5}>                                                          
                                 <Grid item xs={12}>
-                                    <TextField 
+                                    <TextField
+                                        label='Nome Completo'
                                         fullWidth 
                                         value={nome} 
                                         onChange={(event: { target: { value: string } }) => {
@@ -119,6 +116,7 @@ const Create = () => {
                                 </Grid>     
                                 <Grid item xs={12}>
                                     <TextField 
+                                        label='CPF'
                                         fullWidth 
                                         value={cpf} 
                                         onChange={(event: { target: { value: string } }) => {
@@ -129,16 +127,18 @@ const Create = () => {
                                 </Grid>     
                                 <Grid item xs={12}>
                                     <TextField 
+                                        label='Data de Nascimento'
                                         fullWidth 
                                         value={data_nasc} 
                                         onChange={(event: { target: { value: string } }) => {
                                             setData_Nasc(formatDataNasc(event.target.value));
                                         }} 
-                                        placeholder='07/08/1989' 
+                                        placeholder='01/01/2000' 
                                     />
                                 </Grid>     
                                 <Grid item xs={12}>
                                     <TextField 
+                                        label='Telefone'
                                         fullWidth 
                                         value={telefone} 
                                         onChange={(event: { target: { value: string } }) => {
@@ -152,7 +152,7 @@ const Create = () => {
                                     <ButtonStyled type='submit' variant='contained' startIcon={<DoneIcon />} size='large' color='success'>
                                         Salvar
                                     </ButtonStyled>        
-                                    <ResetButtonStyled color='secondary' variant='outlined' startIcon={<CloseIcon />} href='/clientes'>
+                                    <ResetButtonStyled color='secondary' variant='outlined' startIcon={<CloseIcon />} size='large' href='/clientes'>
                                         Cancelar
                                     </ResetButtonStyled>
                                 </Grid>
