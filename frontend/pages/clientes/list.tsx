@@ -17,6 +17,7 @@ import React from "react";
 import Swal from 'sweetalert2';
 import api from "../../services/api";
 import styles from '../../styles/Layout.module.css'
+import { Grid } from "@mui/material";
 
 const List = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -68,7 +69,7 @@ const List = () => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, pode deletar!',
+            confirmButtonText: 'Sim, pode deletar',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             return result.isConfirmed
@@ -117,70 +118,72 @@ const List = () => {
     }
 
     return (
-        <div>
-            {isLoading ? 
-                <Box display='flex' alignItems='center' justifyContent='center' sx={{marginTop: 12, marginBottom: 12}}>
-                    <CircularProgress sx={{ "--CircularProgress-size": "150px" }} />
-                </Box>: 
-                (
-                    <>      
-                        <CardHeader title="Listagem de Clientes"
-                            action={
-                                <Input
-                                    type="text"
-                                    placeholder={`Buscar clientes...`}
-                                    onChange={(event: {
-                                        target: { value: React.SetStateAction<string> };
-                                    }) => {
-                                        SearchNome(event.target.value);
-                                    }}
-                                />
-                            }
-                        />                  
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>#</TableCell>
-                                    <TableCell>Nome Completo</TableCell>
-                                    <TableCell>CPF</TableCell>
-                                    <TableCell>Data de Nascimento</TableCell>
-                                    <TableCell>Telefone</TableCell>
-                                    <TableCell>Ação</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(({ id, nome, cpf, data_nasc, telefone }, index) => {
-                                    return (
-                                        <TableRow key={index}>
-                                            <TableCell>{id}</TableCell>
-                                            <TableCell>{nome}</TableCell>
-                                            <TableCell>{cpf}</TableCell>
-                                            <TableCell>{data_nasc}</TableCell>
-                                            <TableCell>{telefone}</TableCell>
-                                            <TableCell>
-                                                <Tooltip title="Deletar">
-                                                    <IconButton>
-                                                        <DeleteIcon color='error' onClick={()=>destroyClient(id)} />
-                                                    </IconButton>
-                                                </Tooltip>
-                                            </TableCell>
-                                        </TableRow>
-                                    );
-                                }
-                                )}
-                            </TableBody>
-                        </Table>
-                        <TablePagination
-                            component="div"
-                            count={count}
-                            page={page}
-                            onPageChange={handleChangePage}
-                            rowsPerPage={rowsPerPage}
-                            onRowsPerPageChange={handleChangeRowsPerPage} 
+        <div className={styles.panel}>   
+            <Grid>
+                <CardHeader title=""
+                    action={
+                        <Input
+                            type="text"
+                            placeholder={`Buscar clientes...`}
+                            onChange={(event: {
+                                target: { value: React.SetStateAction<string> };
+                            }) => {
+                                SearchNome(event.target.value);
+                            }}
                         />
-                    </>
-                )
-            }
+                    }
+                />     
+                {isLoading ? 
+                    <Box display='flex' alignItems='center' justifyContent='center' sx={{marginTop: 12, marginBottom: 12}}>
+                        <CircularProgress sx={{ "--CircularProgress-size": "150px" }} />
+                    </Box>: 
+                    (     
+                        <>         
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>#</TableCell>
+                                        <TableCell>Nome Completo</TableCell>
+                                        <TableCell>CPF</TableCell>
+                                        <TableCell>Data de Nascimento</TableCell>
+                                        <TableCell>Telefone</TableCell>
+                                        <TableCell>Ação</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(({ id, nome, cpf, data_nasc, telefone }, index) => {
+                                        return (
+                                            <TableRow key={index}>
+                                                <TableCell>{id}</TableCell>
+                                                <TableCell>{nome}</TableCell>
+                                                <TableCell>{cpf}</TableCell>
+                                                <TableCell>{data_nasc}</TableCell>
+                                                <TableCell>{telefone}</TableCell>
+                                                <TableCell>
+                                                    <Tooltip title="Deletar">
+                                                        <IconButton>
+                                                            <DeleteIcon color='error' onClick={()=>destroyClient(id)} />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </TableCell>
+                                            </TableRow>
+                                        );
+                                    }
+                                    )}
+                                </TableBody>
+                            </Table>
+                            <TablePagination
+                                component="div"
+                                count={count}
+                                page={page}
+                                onPageChange={handleChangePage}
+                                rowsPerPage={rowsPerPage}
+                                onRowsPerPageChange={handleChangeRowsPerPage} 
+                            />
+                        </>
+                    )
+                }
+            </Grid>          
         </div>
     );
 }

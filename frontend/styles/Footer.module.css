@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 60px;
+    height: 40px;
     width: 100%;
     padding: 5px 0;
     background-color: #2095f2;
@@ -16,8 +16,4 @@
 .footer a {
     color: inherit;
     text-decoration: none;
-}
-
-.footer .active {
-    color: navy;
 }
