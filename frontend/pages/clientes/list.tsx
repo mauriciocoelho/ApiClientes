@@ -93,7 +93,7 @@ const List = () => {
             Swal.fire({
                 icon: `error`,
                 title: res.response.data.message,
-                text: res.response.data.data.mensagem,
+                text: res.response.data.menssage,
             });
             setIsLoading(false);
         });
