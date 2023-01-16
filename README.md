@@ -1,4 +1,7 @@
 ### Desafio Cuco
+Esse desafio foi desenvolvido utilizando as Linguagens PHP e JavaScript, com os frameworks Laravel v9 e Nexjs v13.
+No Backend foi utilizado para a documentação o Swagger, para os testes unitário foi utilizado o Pest.
+No Frontend foi utilizado o Material-UI.
 
 #### Primeiros passos
 
