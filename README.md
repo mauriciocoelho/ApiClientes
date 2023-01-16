@@ -13,7 +13,7 @@ git clone https://github.com/mauriciocoelho/desafio_cuco.git
 
 Há duas partes desta aplicação.
 
-#### Backend
+### Backend
 
 Acesse o diretório Backend
 
@@ -49,24 +49,22 @@ Sua API agora está hospedada em http://localhost:8000
 
 Você pode acessar este URL depois de concluir a configuração do frontend.
 
-##### API Docs
+#### API Docs
 
-- clients:
+clients: https://postman.com/mauriciocoelho/workspace/desafio-cuco/documentation/9050827-3a985997-0b29-4985-9225-c7fcd6a3b1dd
 
-  https://postman.com/mauriciocoelho/workspace/desafio-cuco/documentation/9050827-3a985997-0b29-4985-9225-c7fcd6a3b1dd
-
-### Documentação das rotas com Swagger
+#### Documentação das rotas com Swagger
 ```
 Pelo o navegador acesse
-- http://localhost:8000/api/doc
+http://localhost:8000/api/doc
 ```
 
-### Testes Unitário
+#### Testes Unitário
 ```
-- php artisan test
+php artisan test
 ```
 
-#### Frontend
+### Frontend
 
 Para o frontend, cd no diretório `frontend` e execute o seguinte comando.
 
