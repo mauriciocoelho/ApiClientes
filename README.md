@@ -1,5 +1,5 @@
-### Desafio Cuco
-Esse desafio foi desenvolvido utilizando as Linguagens PHP e JavaScript, com os frameworks Laravel v9 e Nexjs v13.
+### ApiClientes
+Desenvolvido utilizando as Linguagens PHP e JavaScript, com os frameworks Laravel v9 e Nexjs v13.
 No Backend foi utilizado para a documentação o Swagger, para os testes unitário foi utilizado o Pest.
 No Frontend foi utilizado o Material-UI.
 
@@ -8,7 +8,7 @@ No Frontend foi utilizado o Material-UI.
 Primeiro, clone o repositório:
 
 ```bash
-git clone https://github.com/mauriciocoelho/desafio_cuco.git
+git clone https://github.com/mauriciocoelho/ApiClientes.git
 ```
 
 Há duas partes desta aplicação.
@@ -48,10 +48,6 @@ Sua API agora está hospedada em http://localhost:8000
 
 
 Você pode acessar este URL depois de concluir a configuração do frontend.
-
-#### API Docs
-
-clients: https://postman.com/mauriciocoelho/workspace/desafio-cuco/documentation/9050827-3a985997-0b29-4985-9225-c7fcd6a3b1dd
 
 #### Documentação das rotas com Swagger
 ```
