@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear();
 const Footer = () => (
 
   <div className={styles.footer}>
-    @ {currentYear} DESAFIO CUCO. All Rights Reserved.
+    @ {currentYear} Mauricio Coelho. All Rights Reserved.
   </div>
 );
 export default Footer;

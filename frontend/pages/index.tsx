@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 const Index = () => 
   <Layout>    
     <center>
-      <p>Esse desafio foi desenvolvido utilizando as Linguagens <b>PHP</b> e <b>JavaScript</b>, com os frameworks <b>Laravel</b> e <b>Nexjs</b>.</p>
+      <p>Essa Api foi desenvolvida utilizando as Linguagens <b>PHP</b> e <b>JavaScript</b>, com os frameworks <b>Laravel</b> e <b>Nexjs</b>.</p>
       
       <p>No Backend foi utilizado para a documentação o <b>Swagger</b>, para os testes unitário foi utilizado o <b>Pest</b>.</p>
       

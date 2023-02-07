@@ -12,7 +12,7 @@ const Layout = (props: LayoutProps) => (
   <div className={styles.layout}>
 
     <Head>
-      <title>Desafio Cuco &mdash; Mauricio Coelho</title>
+      <title>Api &mdash; Clients</title>
     </Head>
 
     <Header />
