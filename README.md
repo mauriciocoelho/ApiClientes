@@ -17,7 +17,7 @@ Há duas partes desta aplicação.
 
 Acesse o diretório Backend
 
-    cd desafio_cuco/backend
+    cd ApiClientes
 
 
 Instale todas as dependências usando o composer
